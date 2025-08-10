@@ -1,0 +1,76 @@
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Coldplay</title>
+        <link rel="stylesheet" href="css/inicio.css" />
+        <link rel="icon" href="imagenes/pngwing.com.png" type="image/png" />
+    </head>
+    <body>
+        <header>
+            <img src="imagenes/pngwing.com.png" alt="Logo" class="logo" />
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="active">Inicio</a></li>
+                    <li><a href="pagina/bibliografia.html">Bibliografia</a></li>
+                    <li><a href="pagina/Albumes.html">Álbumes</a></li>
+                    <li><a href="pagina/Playlist.html">Playlist</a></li>
+                </ul>
+                <button id="toggle-dark" class="modo-noche-btn" title="Cambiar modo">🌙</button>
+            </nav>
+        </header>
+
+        <main>
+            <section class="hero">
+                <h1>COLDPLAY</h1>
+                <p>Coldplay es una banda británica de rock formada en Londres en 1996. Los miembros fundadores son Chris Martin (voz y piano) y Jonny Buckland (guitarra). Posteriormente se les unieron Guy Berryman (bajo) y Will Champion (batería). La banda ha logrado un gran éxito comercial y crítico, con álbumes como "Parachutes" y canciones como "Yellow".</p>
+                <a href="pagina/Playlist.html" class="btn">Escuchar Ahora</a>
+            </section>
+
+            <section class="cards">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fG11c2ljfGVufDB8fDB8fHww" alt="Parachutes" />
+                    <h2>Parachutes (2000)</h2>
+                    <p>Incluye el éxito "Yellow"</p>
+                </div>
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="A Rush of Blood to the Head" />
+                    <h2>A Rush of Blood to the Head (2002)</h2>
+                    <p>Contiene "Clocks" y "The Scientist"</p>
+                </div>
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1487215078519-e21cc028cb29" alt="Viva la Vida" />
+                    <h2>Viva la Vida (2008)</h2>
+                    <p>Uno de los álbumes más exitosos</p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Coldplay. Todos los derechos reservados.</p>
+        </footer>
+
+        <script>
+            const toggleBtn = document.getElementById('toggle-dark');
+
+            if (localStorage.getItem('modo') === 'oscuro') {
+                document.body.classList.add('dark-mode');
+            }
+
+            function actualizarEmoji() {
+                const esOscuro = document.body.classList.contains('dark-mode');
+                toggleBtn.textContent = esOscuro ? '☀️' : '🌙';
+            }
+
+            toggleBtn.addEventListener('click', () => {
+                document.body.classList.toggle('dark-mode');
+                const nuevoModo = document.body.classList.contains('dark-mode') ? 'oscuro' : 'claro';
+                localStorage.setItem('modo', nuevoModo);
+                actualizarEmoji();
+            });
+
+            actualizarEmoji();
+        </script>
+    </body>
+    </html>
