@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Coldplay - Álbumes</title>
+  <link rel="stylesheet" href="/css/albumes.css" />
+  <link rel="icon" href="/imagenes/pngwing.com.png" type="image/png" />
+</head>
+<body>
+  <header>
+    <img src="/imagenes/pngwing.com.png" alt="Logo" class="logo" />
+    <nav>
+      <ul>
+        <li><a href="/index.html">Inicio</a></li>
+        <li><a href="bibliografia.html">Bibliografía</a></li>
+        <li><a href="Albumes.html" class="active">Álbumes</a></li>
+        <li><a href="Playlist.html">Playlist</a></li>
+      </ul>
+      <button id="toggle-dark" class="modo-noche-btn" title="Cambiar modo">🌙</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Intro -->
+    <section class="intro">
+      <h1>Álbumes de Coldplay</h1>
+      <p>Explora los álbumes más icónicos de la banda.</p>
+    </section>
+
+    <!-- Álbumes -->
+    <section class="albumes">
+      <article>
+        <img src="https://i.scdn.co/image/ab67616d0000b2739164bafe9aaa168d93f4816a" alt="Parachutes" />
+        <h3>Parachutes (2000)</h3>
+      </article>
+      <article>
+        <img src="https://i.scdn.co/image/ab67616d0000b273de09e02aa7febf30b7c02d82" alt="A Rush of Blood to the Head" />
+        <h3>A Rush of Blood to the Head (2002)</h3>
+      </article>
+      <article>
+        <img src="https://i.scdn.co/image/ab67616d0000b2734e0362c225863f6ae2432651" alt="X&Y" />
+        <h3>X&Y (2005)</h3>
+      </article>
+      <article>
+        <img src="https://i.scdn.co/image/ab67616d0000b273e21cc1db05580b6f2d2a3b6e" alt="Viva la Vida" />
+        <h3>Viva la Vida (2008)</h3>
+      </article>
+      <article>
+        <img src="https://i.scdn.co/image/ab67616d0000b2732e62096e4daf8cd0d29fda48" alt="Mylo Xyloto" />
+        <h3>Mylo Xyloto (2011)</h3>
+      </article>
+    </section>
+
+    <!-- Video -->
+    <section class="video-container">
+      <iframe src="https://www.youtube.com/embed/DFfB2_nSfzA" title="Coldplay en vivo" allowfullscreen></iframe>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Coldplay. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    // Modo oscuro
+    const toggleBtn = document.getElementById('toggle-dark');
+    if (localStorage.getItem('modo') === 'oscuro') {
+      document.body.classList.add('dark-mode');
+    }
+
+    function actualizarEmoji() {
+      toggleBtn.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+    }
+
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      localStorage.setItem('modo', document.body.classList.contains('dark-mode') ? 'oscuro' : 'claro');
+      actualizarEmoji();
+    });
+
+    actualizarEmoji();
+  </script>
+</body>
+</html>

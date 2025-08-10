@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Playlist - Coldplay</title>
+  <link rel="stylesheet" href="/css/playlist.css" />
+  <link rel="icon" href="/imagenes/pngwing.com.png" type="image/png" />
+</head>
+<body>
+  <header>
+    <img src="/imagenes/pngwing.com.png" alt="Logo" class="logo" />
+    <nav>
+      <ul>
+        <li><a href="/index.html">Inicio</a></li>
+        <li><a href="bibliografia.html">Bibliografia</a></li>
+        <li><a href="Albumes.html">Álbumes</a></li>
+        <li><a href="Playlist.html" class="active">Playlist</a></li>
+      </ul>
+      <button id="toggle-dark" class="modo-noche-btn" title="Cambiar modo">🌙</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="playlist-section">
+      <h1>Playlist Destacada</h1>
+      <p>Disfruta de las canciones más icónicas de Coldplay en esta selección exclusiva.</p>
+
+      <div class="playlist-grid">
+        <div class="track">
+          <img src="https://i.scdn.co/image/ab67616d0000b273de09e02aa7febf30b7c02d82" alt="Viva La Vida">
+          <h3>The Scientist</h3>
+          <audio controls src="/audio/Coldplay - The Scientist (Official 4K Video).mp3"></audio>
+        </div>
+        <div class="track">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpDsvim6qJAwWU4yT7rJyENQOCja7XHOJcLg&s" alt="Fix You">
+          <h3>Fix You</h3>
+          <audio controls src="/audio/Coldplay - Fix You (Official Video).mp3"></audio>
+        </div>
+        <div class="track">
+          <img src="https://i1.sndcdn.com/artworks-h7UQAl9WoQ1DymnZ-oXUMKw-t500x500.jpg" alt="Yellow">
+          <h3>Yellow</h3>
+          <audio controls src="/audio/Coldplay - Yellow (Official Video).mp3"></audio>
+        </div>
+        <div class="track">
+          <img src="https://i1.sndcdn.com/artworks-000420469914-cs5k2q-t1080x1080.jpg" alt="Paradise">
+          <h3>Paradise</h3>
+          <audio controls src="/audio/Coldplay - Paradise (Official Video).mp3"></audio>
+        </div>
+      </div>
+
+      <div class="video-section">
+        <h2>Concierto en Vivo</h2>
+        <iframe width="100%" height="400" src="/video/Coldplay - A Sky Full Of Stars (Live at River Plate) - Coldplay (720p, h264).mp4" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </section>
+  </main>
+
+  <section>
+  <h2>Envíanos tu canción favorita de Coldplay</h2>
+  <form>
+    <label for="nombre">Tu nombre:</label><br />
+    <input type="text" id="nombre" name="nombre" required /><br /><br />
+
+    <label for="cancion">Canción favorita:</label><br />
+    <input type="text" id="cancion" name="cancion" required /><br /><br />
+
+    <label for="mensaje">Mensaje (opcional):</label><br />
+    <textarea id="mensaje" name="mensaje" rows="4" cols="30"></textarea><br /><br />
+
+    <button type="submit">Enviar</button>
+  </form>
+</section>
+
+
+  <footer>
+    <p>&copy; 2025 Coldplay. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    const toggleBtn = document.getElementById('toggle-dark');
+    if (localStorage.getItem('modo') === 'oscuro') {
+      document.body.classList.add('dark-mode');
+    }
+
+    function actualizarEmoji() {
+      const esOscuro = document.body.classList.contains('dark-mode');
+      toggleBtn.textContent = esOscuro ? '☀️' : '🌙';
+    }
+
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      const nuevoModo = document.body.classList.contains('dark-mode') ? 'oscuro' : 'claro';
+      localStorage.setItem('modo', nuevoModo);
+      actualizarEmoji();
+    });
+
+    actualizarEmoji();
+  </script>
+</body>
+</html>
